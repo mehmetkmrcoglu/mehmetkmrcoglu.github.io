@@ -282,6 +282,8 @@ h1 span { color: var(--teal); }
 }
 .project h3 { margin: 0 0 6px; font-size: .95rem; }
 .project p { margin: 0 0 11px; font-size: .86rem; color: var(--muted); }
+.project .project-links { margin: 9px 0 0; font-size: .78rem; line-height: 1.45; }
+.project .project-links a { font-weight: 700; }
 .tags { display: flex; flex-wrap: wrap; gap: 5px; }
 .tag {
   font-size: .69rem; font-weight: 700; color: var(--teal-dark);
@@ -432,6 +434,7 @@ h1 span { color: var(--teal); }
   }
   .project h3 { font-size: 8.6pt; margin-bottom: .8mm; }
   .project p { font-size: 7.9pt; margin-bottom: 1.2mm; }
+  .project .project-links { font-size: 7.1pt; margin: 1mm 0 0; }
   .tag { font-size: 6.4pt; padding: .2mm 1.3mm; }
   .project:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
