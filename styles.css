@@ -172,28 +172,17 @@ h1 span { color: var(--teal); }
 
 /* ---------- Ana ızgara ---------- */
 .layout {
-  display: grid;
-  grid-template-columns: 342px minmax(0, 1fr);
-  grid-template-areas:
-    "iletisim hakkimda"
-    "yetkinlikler deneyim"
-    "yetkinlikler egitim"
-    "yetkinlikler stajlar"
-    "diller projeler"
-    "diller sertifikalar";
+  display: flex;
+  align-items: flex-start;
   gap: 22px;
   padding: 6px 0 72px;
-  align-items: start;
 }
-#iletisim { grid-area: iletisim; }
-#hakkimda { grid-area: hakkimda; }
-#yetkinlikler { grid-area: yetkinlikler; }
-#deneyim { grid-area: deneyim; }
-#egitim { grid-area: egitim; }
-#stajlar { grid-area: stajlar; }
-#diller { grid-area: diller; }
-#projeler { grid-area: projeler; }
-#sertifikalar { grid-area: sertifikalar; }
+.col { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+.col-main { flex: 1 1 auto; order: 2; }
+.col-side { flex: 0 0 342px; order: 1; }
+.col-side > #iletisim { order: 1; }
+.col-side > #yetkinlikler { order: 2; }
+.col-side > #diller { order: 3; }
 
 .card {
   background: var(--card); border: 1px solid var(--line);
@@ -335,7 +324,7 @@ h1 span { color: var(--teal); }
   .hero-grid { grid-template-columns: 1fr; gap: 34px; }
   h1 { font-size: clamp(2.4rem, 10vw, 3.2rem); }
   .layout { display: flex; flex-direction: column; gap: 18px; }
-  .layout > section { width: 100%; }
+  .col-main, .col-side { flex: 0 0 auto; width: 100%; order: 0; }
   .nav { display: none; }
   .project-grid, .cert-list { grid-template-columns: 1fr; }
 }
@@ -393,6 +382,7 @@ h1 span { color: var(--teal); }
 
   /* Tek sütun akış (sayfa kırılımı güvenli) */
   .layout { display: block; padding: 0; }
+  .col { display: block; gap: 0; }
   .card {
     box-shadow: none; border: none; border-radius: 0;
     padding: 0; background: transparent; margin: 0 0 4.2mm;
@@ -403,7 +393,9 @@ h1 span { color: var(--teal); }
   }
   .card h2::before { width: 1.4mm; height: 4.2mm; }
   #iletisim { display: none !important; }
-  #projeler { break-before: page; }
+  /* Sertifikalar uzun iki sütun; sayfa ortasında bölünmesin */
+  #sertifikalar { break-before: page; }
+  .cert-list { break-inside: avoid; }
   h2, h3 { break-after: avoid; }
 
   .summary { font-size: 8.9pt; }
