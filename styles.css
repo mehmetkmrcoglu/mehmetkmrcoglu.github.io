@@ -135,6 +135,30 @@ h1 {
 h1 span { color: var(--teal); }
 .lead { margin: 0 0 26px; font-size: 1.1rem; color: var(--muted); max-width: 54ch; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+
+/* Üstteki rehber kısayolları */
+.guide-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 22px; }
+.guide-label {
+  color: var(--muted); font-size: .7rem; font-weight: 800;
+  letter-spacing: .12em; text-transform: uppercase; margin-right: 2px;
+}
+.guide-link {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 8px 11px; border: 1px solid var(--line); border-radius: 11px;
+  background: #fff; box-shadow: 0 4px 14px rgba(11, 34, 57, .05);
+  transition: transform .15s ease, border-color .15s ease;
+}
+.guide-link:hover { transform: translateY(-1px); border-color: #bcd3de; text-decoration: none; }
+.guide-icon {
+  width: 27px; height: 27px; flex: none; border-radius: 8px;
+  display: grid; place-items: center; color: #fff;
+  background: linear-gradient(135deg, var(--navy), var(--teal));
+  font-size: .74rem; font-weight: 800;
+}
+.guide-text strong { display: block; color: var(--navy); font-size: .8rem; line-height: 1.2; }
+.guide-text small { display: block; color: var(--muted); font-size: .68rem; }
+.guide-arrow { color: var(--teal); font-size: .85rem; margin-left: 2px; }
+
 .hero-meta {
   list-style: none; padding: 0; margin: 0;
   display: flex; flex-wrap: wrap; gap: 10px 20px;
